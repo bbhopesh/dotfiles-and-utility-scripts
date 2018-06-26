@@ -25,9 +25,9 @@ bind-key -t vi-copy 'v' begin-selection
 bind-key -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Set the prefix to ^A.
-unbind C-b
-set -g prefix ^A
-bind a send-prefix
+# unbind C-b
+# set -g prefix ^A
+# bind a send-prefix
 
 # Open new stuff with correct CWD
 
