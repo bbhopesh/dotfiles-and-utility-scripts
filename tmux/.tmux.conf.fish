@@ -101,10 +101,10 @@ bind-key x delete-buffer
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
 
 # Panes
-bind up resize-pane -U 5
-bind down resize-pane -D 5
-bind left resize-pane -L 5
-bind right resize-pane -R 5
+# bind up resize-pane -U 5
+# bind down resize-pane -D 5
+# bind left resize-pane -L 5
+# bind right resize-pane -R 5
 bind tab next-layout
 unbind C-o
 bind r rotate-window
