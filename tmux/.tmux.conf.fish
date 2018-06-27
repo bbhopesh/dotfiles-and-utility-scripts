@@ -56,11 +56,8 @@ bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq v
 bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
 bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
 
-bind C-l send-keys 'C-l'
-
-# shortcuts
-bind - split-window -l 20 -c "#{pane_current_path}"
-bind _ split-window -l 20 -c "#{pane_current_path}" node
+# Directly use C-l for clearing screen.
+bind -n C-l send-keys 'C-l'
 
 # ----------------------
 # Status Bar
@@ -167,5 +164,5 @@ set -g history-limit 10000
 unbind R
 bind R source-file ~/.tmux.conf
 
-set -g default-command /usr/local/bin/fish
-set -g default-shell /usr/local/bin/fish
+set -g default-command /usr/bin/fish
+set -g default-shell /usr/bin/fish
