@@ -5,26 +5,21 @@ set -g default-terminal screen-256color
 # support logging out and back in
 set -g update-environment "SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION"
 
-# pbcopy support
-set-option -g default-command "reattach-to-user-namespace -l bash"
-
-# vi mode
-set-window-option -g mode-keys vi
-
-# if run as "tmux attach", create a session if one does not already exist
-new-session -n $HOST
-
-# Enable mouse
+# Mouse support ------------------------------------------------
 set -g mouse on
 
-# vi-like visual copy
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-pipe "reattach-to-user-namespace pbcopy"
+# # Vi copypaste
+setw -g mode-keys vi
 
-# Set the prefix to ^A.
-# unbind C-b
-# set -g prefix ^A
-# bind a send-prefix
+# Bind `v` to trigger selection    
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+# Bind `y` to yank current selection
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'pbcopy'
+
+# Rebind `mouse click + drag button release` to not jump away from context
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel 'pbcopy'
+# End Mouse support --------------------------------------------
 
 # Open new stuff with correct CWD
 
@@ -60,7 +55,6 @@ bind -n C-l send-keys 'C-l'
 # Status Bar
 # -----------------------
 set-option -g status on                # turn the status bar on
-set -g status-utf8 on                  # set utf-8 for the status bar
 set -g status-interval 2               # set update frequencey (default 15 seconds)
 set -g status-justify centre           # center window list for clarity
 # set-option -g status-position top    # position the status bar at top of screen
@@ -73,10 +67,6 @@ set -g visual-activity on
 # status bar
 # set -g status-right-length 60
 set -g status-right "%b %d %Y @ %l:%M %p"
-
-# split automatically on startup
-split-window -h -c "#{pane_current_path}"
-select-pane -L
 
 # control automatic window renaming
 set-window-option -g automatic-rename on # auto name
@@ -117,10 +107,6 @@ set-option -g set-titles on
 
 # wm window title string (uses statusbar variables)
 set-option -g set-titles-string '#S:#I.#P #W' # window number,program name,active (or not)
-
-
-# Patch for OS X pbpaste and pbcopy under tmux.
-set-option -g default-command "which reattach-to-user-namespace > /dev/null && reattach-to-user-namespace -l $SHELL || $SHELL"
 
 # color scheme (styled as vim-powerline)
 set -g status-left-length 52
