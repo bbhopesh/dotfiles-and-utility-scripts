@@ -15,10 +15,7 @@ set-window-option -g mode-keys vi
 new-session -n $HOST
 
 # Enable mouse
-set -g mode-mouse on
-setw -g mouse-resize-pane on
-setw -g mouse-select-window on
-setw -g mouse-select-pane on
+set -g mouse on
 
 # vi-like visual copy
 bind-key -t vi-copy 'v' begin-selection
@@ -164,5 +161,5 @@ set -g history-limit 10000
 unbind R
 bind R source-file ~/.tmux.conf
 
-set -g default-command /usr/bin/fish
-set -g default-shell /usr/bin/fish
+set -g default-command /usr/local/bin/fish
+set -g default-shell /usr/local/bin/fish
