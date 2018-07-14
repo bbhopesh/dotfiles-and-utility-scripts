@@ -1,0 +1,7 @@
+xkb_keymap {
+	xkb_keycodes  { include "evdev+aliases(qwerty)"	};
+	xkb_types     { include "mytypes(mera_level3)+complete"	};
+	xkb_compat    { include "complete"	};
+	xkb_symbols   { include "mysymbols(mera_symbol3)+pc+us+us:2+inet(evdev)"	};
+	xkb_geometry  { include "pc(pc105)"	};
+};

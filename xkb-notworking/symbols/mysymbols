@@ -1,0 +1,7 @@
+partial modifier_keys
+xkb_symbols "mera_symbol3" {
+    key <AC06>  {
+        type[Group1] = "MERAA_LEVEL3",
+        symbols[Group1] = [    h,   H,  underscore      ]
+    };
+};

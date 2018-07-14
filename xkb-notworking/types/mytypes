@@ -1,0 +1,13 @@
+partial
+xkb_types "mera_level3" {
+    Virtual_modifiers Shift,Alt;
+    type "MERAA_LEVEL3" {
+        modifiers= Shift+Alt;
+        map[None]= Level1;
+        map[Shift]= Level2;
+        map[Alt]= Level3;
+        level_name[Level1]= "Base";
+        level_name[Level2]= "Shift";
+        level_name[Level3]= "Alt";
+    };
+};
