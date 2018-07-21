@@ -6,6 +6,7 @@ set mouse=a " To enable scrolling with mouse.
 set clipboard=unnamedplus " All yanked stuff is pasted to clipboard too. This works on Ubuntu and not on mac.
 " set clipboard=unnamed " Same as previous. This works on Mac and not ubuntu
 
+" #################### Vundle ###########################
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -18,8 +19,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin to navigate between tmux and vim panes.
+" Plugins
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'python-mode/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -35,3 +37,5 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" #################### Vundle end ######################
+
