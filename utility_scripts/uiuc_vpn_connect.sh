@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Read Password
-echo -n Password: 
+echo -n "UIUC Password:" 
 read -s password
 echo
 
