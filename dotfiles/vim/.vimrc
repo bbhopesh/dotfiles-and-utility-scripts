@@ -6,6 +6,10 @@ set mouse=a " To enable scrolling with mouse.
 set clipboard=unnamedplus " All yanked stuff is pasted to clipboard too. This works on Ubuntu and not on mac.
 " set clipboard=unnamed " Same as previous. This works on Mac and not ubuntu
 
+" So clipboard is not cleared on vim exit
+" autocmd VimLeave * call system("xsel -ib", getreg('+')) 
+" autocmd VimLeave * call system("xclip -o | xclip -selection c")
+
 " #################### Vundle ###########################
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -21,7 +25,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Plugins
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'python-mode/python-mode'
+" Plugin 'python-mode/python-mode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
