@@ -43,3 +43,11 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 " #################### Vundle end ######################
 
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=2
+" " when indenting with '>', use 4 spaces width
+set shiftwidth=2
+" " On pressing tab, insert 4 spaces
+set expandtab
+
