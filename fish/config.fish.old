@@ -1,0 +1,14 @@
+# WSL2 somehow starts in /mnt/c/Windows/system32. cd to home dir.
+# cd                                                                                                                 
+# To run GUI apps in WSL2
+set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0.0 
+# export GDK_SCALE=2
+
+set -gx PATH $HOME/.mozbuild/arcanist/bin $HOME/.mozbuild/moz-phab $PATH
+umask 0022
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/bbassi/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
